@@ -9,19 +9,20 @@ Provide a written response that does all three of the following:
 
 ### 3a i.
 
-Create an entertaining random generator that displays different loot combinations for the user to admire. 
-**TODO: Complete this section**
+Create an entertaining random generator that displays different loot for the user to admire. 
+
 
 ### 3a ii.
 
 My video demonstrates how my program can prompt the user to say how many combinations of loot they would like and the requested amount is then displayed
-**TODO: Complete this section**
+ The video shows that my program generates random sprites based on user input.
 
 ### 3a iii.
 
 
 My program receives a numeric input ranging from 1 to 3 from the user and then outputs a list containing that many loot combinations
-**TODO: Complete this section**
+
+The program input is the user pressing a button and the outputs are sprites that are loaded in.
 
 ## 3b
 
@@ -33,24 +34,35 @@ used to manage complexity in your program.
 
 The first program code segment must show how data have been stored in the list.
 
+```csharp
+ foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Weapon"))
+       {
+           MeleeWeapons.Add(obj);
+       }
+```
 ### 3b ii.
 
 The second program code segment must show the data in the same list being used,
 such as creating new data from the existing data or accessing multiple elements
 in the list, as part of fulfilling the program's purpose.
 
-
+```csharp
+foreach (GameObject weapon in MeleeWeapons)
+        {
+            weapon.SetActive(false);
+        }
+```
 
 
 ### 3b iii.
 
-
+MeleeWeapons in the name of the list being used.
 
 ### 3b iv.
 
 Describes what the data contained in the list represents in your program
 
-The list represents all of the possible weapon combinations that are possible to be generated
+The list represents all of the possible melee weapons that are  to be generated
 
 ### 3b v.
 
@@ -61,7 +73,9 @@ written differently, if you did not use the list.
 **TODO: Explain why it would be very difficult (or impossible) to write 
 the program without using the list.**
 
-Without a list, it would be difficult but not impossible for there to be a selection of weapons since there would be no random index. If I wanted to add more possibilities it would make the process very redundant and not efficient. In order to manage complexity, this list allows the program to efficiently generate a random weapon without the need of numerous if / else if statements for each possible random number that could be generated. 
+Without a list, it would be difficult but not impossible for there to be a selection of weapons since there would be no random index. If I wanted to add more possibilities it would make the process very redundant and not efficient. In order to manage complexity, this list allows the program to efficiently generate a random weapon without the need of numerous if / else if statements for each possible random number that could be generated.
+
+Without a list, it would be more difficult to add weapons because I would have to make a variable for every weapon that I want ot add. I also would not be able to write a loop that broadens my code to a single line. The list allows me to add weapons without changing or adding any new code.
 
 ## 3c.
 
@@ -77,30 +91,60 @@ The first program code segment must be a student-developed procedure that:
 - [ ] Contains and uses one or more parameters that have an effect on the functionality of the procedure
 - [ ] Implements an algorithm that includes sequencing, selection, and iteration
 
+```csharp
+public void SetWeapon(GameObject newSprite)
+    {
+        if (newSprite == null )
+        {
+            throw new System.Exception("QUACK");
+        }
 
+        
+        foreach (GameObject weapon in MeleeWeapons)
+        {
+            weapon.SetActive(false);
+        }
+        System.Random generator = new System.Random();
+        int index = generator.Next(0, MeleeWeapons.Count);
+        MeleeWeapons[index].SetActive(true);
+        // newSprite.SetActive(true);
+
+        foreach (GameObject weapon in ProjectileWeapons)
+        {
+            weapon.SetActive(false);
+        }
+
+        int index1 = generator.Next(0, ProjectileWeapons.Count);
+        ProjectileWeapons[index1].SetActive(true);
+    }
+```
           
 ### 3c ii.
 
 The second program code segment must show where your student-developed procedure is being called in your program.
-
-
+```csharp
+ public void OnClickButton (GameObject sprite)
+    {
+        SetWeapon(sprite);
+    }
+```
 
 ### 3c iii.
 
 Describes in general what the identified procedure does and how it contributes to the overall functionality of the program.
 
-Given a valid number of loot combinations to generate, displays a list of loot to generate. This is the main function of the program. 
+Given a game object, all weapon sprites are turned off and a new sprite is passed in. A random weapon gets generated from MeleeWeapons and that weapon is to be set active.
 ### 3c iv.
 
 Explains in detailed steps how the algorithm implemented in the identified procedure works. Your explanation must be detailed enough for someone else to recreate it.
-1.) Prompts the user if they would like some epic loot
-2.) Loads a list of the different types of loot
-3.) Loads the list of the different elements of the loot
-4.) Loads the list of the different themes of the loot
-5.) Randomly selects a type, element, and theme
-6.) Write the random selection of the three combinations to the console
-7.) If more loot needs to be generated by the user saying yes to more loot, go back to step 2
-8.) Otherwise, the program exits
+
+1.) Loads a list of the different types of loot
+2.) Loads the list of the different projectile loot
+3.) Loads the list of the different melee loot
+4.) Randomly selects a melee weapon or projectile weapon
+5.) Displays the random projectile or melee weapon
+6.) If more loot needs to be generated by the user then go back to step 4
+7.) Otherwise, the program exits
 
 ## 3d
 
@@ -111,12 +155,12 @@ Provide a written response that does all three of the following:
 Describes two calls to the procedure identified in written response 3c. Each call must pass a different argument(s) that causes a different segment of code in the algorithm to execute.
 
 First call: 
-GetValidInt(null)
+SetWeapon(null);
 
 **TODO: Complete this section**
 
 Second call:
-GetValidInt("Enter a number")
+SetWeapon(WitherhoardObject;
 
 **TODO: Complete this section**
 
@@ -142,9 +186,8 @@ Result of the first call:
 
 The result of calling with a string that is null is an exception being thrown.
 
-**TODO: Complete this section**
+
 
 Result of the second call:
-The result of calling with a number that is at least 1 is to display that many combinations of loot. 
+The result of calling with a Witherhoard Object is that a Witherhoard object gets shown.
 
-**TODO: Complete this section**

@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-     public SpriteRenderer WeaponRenderer;
+    public SpriteRenderer WeaponRenderer;
     public List <GameObject> ProjectileWeapons = new List<GameObject>();
     public List <GameObject> MeleeWeapons = new List<GameObject>();
 
+    public void OnClickButton (GameObject sprite)
+    {
+        SetWeapon(sprite);
+    }
     public void SetWeapon(GameObject newSprite)
     {
         if (newSprite == null )
         {
-            throw new System.Exception("bro where the object at");
+            throw new System.Exception("QUACK");
         }
 
         
