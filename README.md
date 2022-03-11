@@ -90,3 +90,4 @@ Given a list of weapons, themes, and elements, generate random loot from each li
 4. If the user clicks the projectile weapon button, the result should be a random projectile weapon sprite showing up. 
 5. If the user clicks the melee weapon button, the result should be a random melee weapon sprite showing up. 
 6. The program should print that the user found the resulting weapon
+
