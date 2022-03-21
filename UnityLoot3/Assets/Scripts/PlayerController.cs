@@ -10,10 +10,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnClickButton (GameObject sprite)
     {
+        /// <summary>
+        /// A method is called when the user clicks any button and then unity prints a sprite on the users interface.
+        /// </summary>
+        /// <param name ="newSprite"></param>
+        /// 
         SetWeapon(sprite);
     }
     public void SetWeapon(GameObject newSprite)
     {
+        /// <summary>
+        /// This is method checks if there is an image to be and if not, the system throws an exception.
+        /// then all other weapons are turned off and are not displayed except the singular range or melee game object that gets called.
+        /// <param namer="newSprite"></param>
         if (newSprite == null )
         {
             throw new System.Exception("QUACK");
