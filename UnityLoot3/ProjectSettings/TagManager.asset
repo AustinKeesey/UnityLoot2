@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Melee
   - Projectile
+  - Armor
   layers:
   - Default
   - TransparentFX

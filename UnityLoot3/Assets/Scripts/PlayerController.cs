@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer WeaponRenderer;
     public List <GameObject> ProjectileWeapons = new List<GameObject>();
     public List <GameObject> MeleeWeapons = new List<GameObject>();
+    public List <GameObject> FillInArmor = new List<GameObject>();
+    public List <GameObject> DifferentArmor = new List<GameObject>();
 
     public void OnClickButton (GameObject sprite)
     {
@@ -45,6 +47,30 @@ public class PlayerController : MonoBehaviour
 
         int index1 = generator.Next(0, ProjectileWeapons.Count);
         ProjectileWeapons[index1].SetActive(true);
+    }
+
+     public void SetArmor(string armorType)
+    {
+        foreach(GameObject armor in FillInArmor)
+        {
+            armor.SetActive(false);
+        }
+        foreach (GameObject armor in DifferentArmor)
+        {
+            armor.SetActive(false);
+        }
+
+        System.Random generator1 =  new System.Random();
+        if (armorType == "cartoon")
+        {
+            int index2 = generator1.Next(0, FillInArmor.Count);
+            FillInArmor[index2].SetActive(true);
+        }
+        else 
+        {
+            int index3 =  generator1.Next(0, DifferentArmor.Count);
+            DifferentArmor[index3].SetActive(true);
+        }
     }
 
     // Start is called before the first frame update
